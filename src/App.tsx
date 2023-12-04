@@ -1,11 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
+
+import classNames from 'classnames/bind'
+
+import styles from './App.module.scss'
+
+const cx = classNames.bind(styles)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className={cx('container')}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -16,11 +21,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Reactyar
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
