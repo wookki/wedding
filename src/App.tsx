@@ -5,7 +5,8 @@ import styles from './App.module.scss'
 import FullScreenMessage from '@shared/FullScreenMessage'
 import Heading from '@components/sections/Heading'
 import Video from '@components/sections/Video'
-import { Wedding } from './models/wedding'
+import { Wedding } from '@models/wedding'
+import ImageGallery from '@components/sections/ImageGallery'
 
 const cx = classNames.bind(styles)
 
@@ -45,12 +46,13 @@ function App() {
     return null
   }
 
-  const { date } = wedding
+  const { date, galleryImages } = wedding
 
   return (
     <div className={cx('container')}>
       <Heading date={date} />
       <Video />
+      <ImageGallery images={galleryImages} />
     </div>
   )
 }
