@@ -2,12 +2,15 @@ import classNames from 'classnames/bind'
 import { useEffect, useState } from 'react'
 
 import styles from './App.module.scss'
-import FullScreenMessage from './components/shared/FullScreenMessage'
+import FullScreenMessage from '@shared/FullScreenMessage'
+import Heading from '@components/sections/Heading'
+import Video from '@components/sections/Video'
+import { Wedding } from './models/wedding'
 
 const cx = classNames.bind(styles)
 
 function App() {
-  const [wedding, setWedding] = useState(null)
+  const [wedding, setWedding] = useState<Wedding | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(false)
 
@@ -30,7 +33,7 @@ function App() {
       })
   }, [])
 
-  if (isLoading === false) {
+  if (isLoading) {
     return <FullScreenMessage type="loading" />
   }
 
@@ -38,7 +41,18 @@ function App() {
     return <div>에러가 발생했습니다.</div>
   }
 
-  return <div className={cx('container')}></div>
+  if (wedding === null) {
+    return null
+  }
+
+  const { date } = wedding
+
+  return (
+    <div className={cx('container')}>
+      <Heading date={date} />
+      <Video />
+    </div>
+  )
 }
 
 export default App
