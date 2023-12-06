@@ -55,8 +55,6 @@ const Contact = ({
 }
 
 const ContactInfo = ({ name, account, phoneNumber }: Person) => {
-  console.log(!!account.kakaopayLink, account.kakaopayLink)
-
   return (
     <div className={cx('wrap-contact')}>
       {/* 정보표현 */}
