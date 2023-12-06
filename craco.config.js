@@ -1,4 +1,5 @@
 const CracoAlias = require('craco-alias')
+const FontPreloadPlugin = require('webpack-font-preload-plugin')
 // const BundleAnalyzerPlugin =
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -14,6 +15,15 @@ module.exports = {
       },
     },
   ],
+  webpack: {
+    plugins: {
+      add: [
+        new FontPreloadPlugin({
+          extensions: ['woff2'],
+        }),
+      ],
+    },
+  },
   // babel: {
   //   presets: [
   //     [
