@@ -17,11 +17,7 @@ import useWedding from './hooks/useWedding'
 const cx = classNames.bind(styles)
 
 function App() {
-  const { wedding, isLoading, error } = useWedding()
-
-  if (error) {
-    return <div>에러가 발생했습니다.</div>
-  }
+  const { wedding } = useWedding()
 
   if (wedding == null) {
     return null
