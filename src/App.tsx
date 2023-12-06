@@ -19,15 +19,11 @@ const cx = classNames.bind(styles)
 function App() {
   const { wedding, isLoading, error } = useWedding()
 
-  if (isLoading) {
-    return <FullScreenMessage type="loading" />
-  }
-
   if (error) {
     return <div>에러가 발생했습니다.</div>
   }
 
-  if (wedding === null) {
+  if (wedding == null) {
     return null
   }
 
